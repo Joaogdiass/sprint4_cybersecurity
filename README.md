@@ -28,7 +28,7 @@
   - Config `sonar-project.properties`
 
 ## Como usar
-1. Faça upload de tudo num repositório GitHub (ex.: `sprint3_cybersecurity`).
+1. Faça upload de tudo num repositório GitHub (ex.: `sprint4_cybersecurity`).
 2. Configure os segredos (Settings → Secrets → Actions):
    - `SONAR_TOKEN`, `SONAR_HOST_URL`, `SONAR_PROJECT_KEY`, `SONAR_ORG` (se usar SonarCloud).
 3. Vá em **Actions** e verifique os jobs:
