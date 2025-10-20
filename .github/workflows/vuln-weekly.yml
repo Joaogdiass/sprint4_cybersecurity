@@ -1,0 +1,23 @@
+name: Vulnerability Management - Weekly
+on:
+  schedule: [ { cron: "0 12 * * 1" } ]
+  workflow_dispatch: {}
+jobs:
+  weekly-security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Semgrep weekly
+        uses: returntocorp/semgrep-action@v1
+        with:
+          config: >-
+            p/security-audit
+            semgrep-rules/secure.yml
+      - name: Dependency-Check weekly
+        run: |
+          curl -Ls https://github.com/jeremylong/DependencyCheck/releases/latest/download/dependency-check.zip -o dc.zip
+          unzip -q dc.zip -d $HOME/dc; echo "$HOME/dc/dependency-check/bin" >> $GITHUB_PATH
+          dependency-check.sh --project "Sprint3-weekly" --scan "." --format HTML --out .
+      - name: Upload weekly SCA
+        uses: actions/upload-artifact@v4
+        with: { name: weekly-dependency-check, path: dependency-check-report.html }

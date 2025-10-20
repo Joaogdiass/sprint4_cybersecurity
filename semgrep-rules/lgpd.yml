@@ -1,0 +1,15 @@
+rules:
+  - id: pii-collection-check
+    message: "Coleta de PII: valide base legal/consentimento."
+    severity: WARNING
+    languages: [python, js, ts]
+    pattern-either:
+      - pattern: request.json["cpf"]
+      - pattern: request.json["email"]
+      - pattern: request.json["telefone"]
+
+  - id: no-plaintext-secrets
+    message: "Segredos em claro não são permitidos."
+    severity: ERROR
+    patterns:
+      - pattern: SECRET = "..."

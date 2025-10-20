@@ -1,0 +1,21 @@
+rules:
+  - id: no-sql-string-concat
+    message: "Use query parametrizada; não concatene strings em SQL."
+    severity: ERROR
+    patterns:
+      - pattern-either:
+          - pattern: execute($SQL + $X)
+          - pattern: cursor.execute(f"...{$X}...")
+
+  - id: no-debug-in-prod
+    message: "DEBUG habilitado em produção."
+    severity: ERROR
+    pattern: DEBUG = True
+
+  - id: jwt-must-have-exp
+    message: "JWT deve conter 'exp' e validação de expiração."
+    severity: WARNING
+    languages: [python, js, ts]
+    pattern-either:
+      - pattern: jwt.sign($PAYLOAD, $KEY, {...})
+      - pattern: jwt_encode($PAYLOAD, $KEY, ...)

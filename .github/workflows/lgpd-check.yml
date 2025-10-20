@@ -1,0 +1,17 @@
+name: LGPD Compliance Checks
+on:
+  push: { branches: [ "main" ] }
+  pull_request: { branches: [ "main" ] }
+jobs:
+  lgpd:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Semgrep - LGPD rules
+        uses: returntocorp/semgrep-action@v1
+        with:
+          config: semgrep-rules/lgpd.yml
+      - name: Run LGPD tests
+        run: |
+          pip install pytest || true
+          if [ -d tests/lgpd ]; then pytest -q tests/lgpd; else echo "No LGPD tests"; fi
