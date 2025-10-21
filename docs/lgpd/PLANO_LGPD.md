@@ -10,6 +10,3 @@
 ## Integração CI/CD
 - Semgrep `lgpd.yml` e testes `tests/lgpd` rodando no `lgpd-check.yml`.
 - Alertas quando coleta excede escopo ou faltam controles.
-
-## Evidências
-- Prints do job `LGPD Compliance Checks` e exemplos de logs de consentimento simulados.
