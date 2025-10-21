@@ -53,10 +53,6 @@ Workflow `.github/workflows/code-quality-sonar.yml`:
 2. Envia resultados usando `SONAR_TOKEN` e `SONAR_HOST_URL`.
 3. Aplica **Quality Gate** para bloquear PRs se métricas < padrão.
 
-### Evidências
-- Dashboard com **Quality Gate**.
-- Painel de métricas (Smells, Bugs, Vulnerabilities, Coverage, Duplications).
-- Comentários no PR (decoração, se SonarCloud).
 
 ### Conclusão
 O Sonar reforça o SSDLC com validação contínua de **qualidade e segurança** antes do merge.
