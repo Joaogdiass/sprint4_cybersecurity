@@ -20,6 +20,3 @@ Fluxo contínuo de identificação, priorização, mitigação e monitoramento.
 - Workflow semanal `vuln-weekly.yml`.
 - Dashboards: GitHub Security / Actions.
 - Métricas: MTTR, #abertas/fechadas por severidade.
-
-## Evidências
-- Prints das execuções e issues abertas via template `vulnerability.yml`.
