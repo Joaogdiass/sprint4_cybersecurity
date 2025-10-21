@@ -11,5 +11,5 @@ rules:
   - id: no-plaintext-secrets
     message: "Segredos em claro não são permitidos."
     severity: ERROR
-    patterns:
-      - pattern: SECRET = "..."
+    languages: [python, js, ts]
+    pattern: SECRET = "..."
